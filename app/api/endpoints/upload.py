@@ -47,8 +47,8 @@ async def upload_file(pdf_file: UploadFile = File(...), metadata: str = Form(...
         print(local_file_path)
 
         with open(local_file_path, "wb") as _pdf_file:
-            recieved_pdf_content = await pdf_file.read()
-            _pdf_file.write(recieved_pdf_content)
+            received_pdf_content = await pdf_file.read()
+            _pdf_file.write(received_pdf_content)
 
         # Push to s3 instead of database
         with dbm.open(REPOSITORY_METADATA_FILE, "c") as db:
